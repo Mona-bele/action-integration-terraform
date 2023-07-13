@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func SetGithubEnvOutput(key string, value int) {
+func SetGithubEnvOutput(key, value string) {
 	outputFilename := os.Getenv("GITHUB_OUTPUT")
 	f, err := os.OpenFile(outputFilename,
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
