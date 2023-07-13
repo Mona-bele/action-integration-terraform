@@ -70,3 +70,7 @@ runs:
     - ${{ inputs.variable_description }}
     - ${{ inputs.delete_variable }}
     - ${{ inputs.create_variable }}
+
+branding:
+  icon: 'activity'
+  color: 'blue'
