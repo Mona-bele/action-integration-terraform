@@ -1,0 +1,72 @@
+name: 'API Integration - Github Actions Terraform'
+description: 'Communicate with Github Actions and Terraform Cloud'
+author: 'Monabele'
+inputs:
+  tf_api_token:
+    description: 'Terraform Cloud API Token'
+    required: true
+    default: 'TF_API_TOKEN'
+  tf_workspace:
+    description: 'Terraform Cloud Workspace'
+    required: true
+    default: 'TF_WORKSPACE'
+  tf_organization:
+    description: 'Terraform Cloud Organization'
+    required: true
+    default: 'TF_ORGANIZATION'
+  tf_run_type:
+    description: 'Terraform Cloud Run Type'
+    required: true
+    default: 'TF_RUN_TYPE'
+
+# Workspace Variables API
+  variable_type:
+    description: 'Workspace Variable Type'
+    required: false
+    default: 'var'
+  variable_key:
+    description: 'Workspace Variable Key'
+    required: false
+  variable_value:
+    description: 'Workspace Variable Value'
+    required: false
+  variable_category:
+    description: 'Workspace Variable Category'
+    required: false
+    default: 'terraform'
+  variable_sensitive:
+    description: 'Workspace Variable Sensitive'
+    required: false
+    default: 'false'
+  variable_hcl:
+    description: 'Workspace Variable HCL'
+    required: false
+    default: 'false'
+  variable_description:
+    description: 'Workspace Variable Description'
+    required: false
+    default: 'var_description'
+
+# Workspace Variables API Interactions
+  delete_variable:
+    description: 'Delete Workspace Variable'
+    required: false
+
+  create_variable:
+    description: 'Create Workspace Variable'
+    required: false
+
+runs:
+  using: docker
+  image: Dockerfile
+
+  args:
+    - ${{ inputs.variable_type }}
+    - ${{ inputs.variable_key }}
+    - ${{ inputs.variable_value }}
+    - ${{ inputs.variable_category }}
+    - ${{ inputs.variable_sensitive }}
+    - ${{ inputs.variable_hcl }}
+    - ${{ inputs.variable_description }}
+    - ${{ inputs.delete_variable }}
+    - ${{ inputs.create_variable }}
