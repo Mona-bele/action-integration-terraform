@@ -2,7 +2,7 @@ package run
 
 import (
 	"fmt"
-	"github.com/Mona-bele/action-integration-terraform/internal/utils"
+	"github.com/Mona-bele/action-integration-terraform/pkg/utils"
 	"io"
 	"net/http"
 )

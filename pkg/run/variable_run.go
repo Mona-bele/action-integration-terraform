@@ -5,8 +5,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/Mona-bele/action-integration-terraform/internal/utils"
 	"github.com/Mona-bele/action-integration-terraform/pkg/model"
+	"github.com/Mona-bele/action-integration-terraform/pkg/utils"
 	"log"
 )
 

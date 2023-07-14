@@ -3,7 +3,7 @@ package run
 import (
 	"context"
 	"errors"
-	"github.com/Mona-bele/action-integration-terraform/internal/utils"
+	"github.com/Mona-bele/action-integration-terraform/pkg/utils"
 	"log"
 	"strings"
 )

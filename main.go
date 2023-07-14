@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"github.com/Mona-bele/action-integration-terraform/internal/utils"
 	"github.com/Mona-bele/action-integration-terraform/pkg/run"
+	"github.com/Mona-bele/action-integration-terraform/pkg/utils"
 	"os"
 )
 

@@ -1,8 +1,8 @@
 package run
 
 import (
-	"github.com/Mona-bele/action-integration-terraform/internal/utils"
 	"github.com/Mona-bele/action-integration-terraform/pkg/model"
+	"github.com/Mona-bele/action-integration-terraform/pkg/utils"
 )
 
 type ISetting interface {
