@@ -2,7 +2,6 @@ package utils
 
 import (
 	"github.com/joho/godotenv"
-	"github.com/spf13/viper"
 	"os"
 	"strconv"
 )
@@ -45,11 +44,6 @@ func LoadEnv(path string) (*ConfigEnv, error) {
 
 	env.DeleteVariable = os.Getenv("delete_variable")
 	env.CreateVariable = os.Getenv("create_variable")
-
-	err := viper.Unmarshal(&env)
-	if err != nil {
-		return nil, err
-	}
 
 	return &env, nil
 }
