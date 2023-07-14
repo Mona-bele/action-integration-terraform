@@ -8,13 +8,11 @@ WORKDIR /src
 COPY . .
 
 # Build
-RUN make build
+RUN CGO_ENABLED=0 go build -ldflags="-w -s" -v -o bin/app main.go
 
 # Using a distroless image from https://github.com/GoogleContainerTools/distroless
 FROM gcr.io/distroless/static-debian11
 
 COPY --from=builder /src/bin/app /
-
-EXPOSE 8000
 
 CMD ["/app"]
