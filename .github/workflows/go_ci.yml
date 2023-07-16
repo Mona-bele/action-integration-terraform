@@ -14,9 +14,9 @@ permissions:
   contents: read
 
 env:
-  tf_api_token: "${{ secrets.TF_API_TOKEN }}"
-  tf_organization: "${{ env.TF_ORGANIZATION }}"
-  tf_workspace: "${{ env.TF_WORKSPACE }}"
+  tf_api_token: ${{ secrets.TF_API_TOKEN }}
+  tf_organization: ${{ secrets.TF_ORGANIZATION }}
+  tf_workspace: ${{ secrets.TF_WORKSPACE }}
 
 jobs:
   build:
