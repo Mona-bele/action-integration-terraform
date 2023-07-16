@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	utils.ArgsInput()
 	tfRunType := os.Getenv("tf_run_type")
 	builder, err := run.GetBuilder(tfRunType)
 	if err != nil {

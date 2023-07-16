@@ -59,17 +59,23 @@ inputs:
 runs:
   using: docker
   image: Dockerfile
+  env:
+    tf_api_token: ${{ inputs.tf_api_token }}
+    TF_WORKSPACE: ${{ inputs.tf_workspace }}
+    tf_workspace: ${{ inputs.tf_organization }}
+    tf_run_type: ${{ inputs.tf_run_type }}
+    variable_type: ${{ inputs.variable_type }}
 
   args:
-    - ${{ inputs.variable_type }}
-    - ${{ inputs.variable_key }}
-    - ${{ inputs.variable_value }}
-    - ${{ inputs.variable_category }}
-    - ${{ inputs.variable_sensitive }}
-    - ${{ inputs.variable_hcl }}
-    - ${{ inputs.variable_description }}
-    - ${{ inputs.delete_variable }}
-    - ${{ inputs.create_variable }}
+    - "-variable_type=${{ inputs.variable_type }}"
+    - "-variable_key=${{ inputs.variable_key }}"
+    - "-variable_value=${{ inputs.variable_value }}"
+    - "-variable_category=${{ inputs.variable_category }}"
+    - "-variable_sensitive=${{ inputs.variable_sensitive }}"
+    - "-variable_hcl=${{ inputs.variable_hcl }}"
+    - "-variable_description=${{ inputs.variable_description }}"
+    - "-delete_variable=${{ inputs.delete_variable }}"
+    - "-create_variable=${{ inputs.create_variable }}"
 
 branding:
   icon: 'activity'

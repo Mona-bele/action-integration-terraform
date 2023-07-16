@@ -1,27 +1,28 @@
 package utils
 
 import (
+	"flag"
 	"github.com/joho/godotenv"
 	"os"
 	"strconv"
 )
 
 type ConfigEnv struct {
-	TFAPITOKEN     string `mapstructure:"tf_api_token"`
-	TFWORKSPACE    string `mapstructure:"tf_workspace"`
-	TFORGANIZATION string `mapstructure:"tf_organization"`
-	TFRUNTYPE      string `mapstructure:"tf_run_type"`
+	TFAPITOKEN     string `json:"tf_api_token"`
+	TFWORKSPACE    string `json:"tf_workspace"`
+	TFORGANIZATION string `json:"tf_organization"`
+	TFRUNTYPE      string `json:"tf_run_type"`
 
-	VariableType        string `mapstructure:"variable_type"`
-	VariableKey         string `mapstructure:"variable_key"`
-	VariableValue       string `mapstructure:"variable_value"`
-	VariableCategory    string `mapstructure:"variable_category"`
-	VariableSensitive   bool   `mapstructure:"variable_sensitive"`
-	VariableHcl         bool   `mapstructure:"variable_hcl"`
-	VariableDescription string `mapstructure:"variable_description"`
+	VariableType        string `json:"variable_type"`
+	VariableKey         string `json:"variable_key"`
+	VariableValue       string `json:"variable_value"`
+	VariableCategory    string `json:"variable_category"`
+	VariableSensitive   bool   `json:"variable_sensitive"`
+	VariableHcl         bool   `json:"variable_hcl"`
+	VariableDescription string `json:"variable_description"`
 
-	DeleteVariable string `mapstructure:"delete_variable"`
-	CreateVariable string `mapstructure:"create_variable"`
+	DeleteVariable string `json:"delete_variable"`
+	CreateVariable string `json:"create_variable"`
 }
 
 func LoadEnv(path string) (*ConfigEnv, error) {
@@ -46,4 +47,32 @@ func LoadEnv(path string) (*ConfigEnv, error) {
 	env.CreateVariable = os.Getenv("create_variable")
 
 	return &env, nil
+}
+
+var (
+	variableType, variableKey, variableValue, variableDescription, variableCategory string
+	variableHcl, variableSensitive                                                  bool
+)
+
+func ArgsInput() {
+	flag.StringVar(&variableType, "variable_type", "", "variable type")
+	flag.StringVar(&variableKey, "variable_key", "", "variable key")
+	flag.StringVar(&variableValue, "variable_value", "", "variable value")
+	flag.StringVar(&variableDescription, "variable_description", "", "variable description")
+	flag.StringVar(&variableCategory, "variable_category", "", "variable category")
+	flag.BoolVar(&variableHcl, "variable_hcl", false, "variable hcl")
+	flag.BoolVar(&variableSensitive, "variable_sensitive", false, "variable sensitive")
+	flag.Parse()
+
+	// set env variable from flag value
+
+	SetGithubEnv("variable_type", variableType)
+	SetGithubEnv("variable_key", variableKey)
+	SetGithubEnv("variable_value", variableValue)
+	SetGithubEnv("variable_description", variableDescription)
+	SetGithubEnv("variable_category", variableCategory)
+	variableHclParse := strconv.FormatBool(variableHcl)
+	SetGithubEnv("variable_hcl", variableHclParse)
+	variableSensitiveParse := strconv.FormatBool(variableSensitive)
+	SetGithubEnv("variable_sensitive", variableSensitiveParse)
 }

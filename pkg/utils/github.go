@@ -23,3 +23,9 @@ func SetGithubEnvOutput(key, value string) {
 		log.Println(err)
 	}
 }
+
+func SetGithubEnv(key, value string) {
+	if err := os.Setenv(key, value); err != nil {
+		log.Println(err)
+	}
+}
