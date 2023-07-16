@@ -19,7 +19,7 @@ func SetGithubEnvOutput(key, value string) {
 			log.Println(err)
 		}
 	}(f)
-	if _, err := f.WriteString(fmt.Sprintf("%s=%d\n", key, value)); err != nil {
+	if _, err := f.WriteString(fmt.Sprintf("%s=%s\n", key, value)); err != nil {
 		log.Println(err)
 	}
 }
