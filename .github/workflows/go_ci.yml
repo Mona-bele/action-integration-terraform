@@ -9,8 +9,13 @@ on:
   pull_request:
     branches: [ "main" ]
 
-jobs:
+env:
+  TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+  TF_WORKSPACE: ${{ env.TF_WORKSPACE }}
+  TF_ORGANIZATION: ${{ env.TF_ORGANIZATION }}
 
+
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
