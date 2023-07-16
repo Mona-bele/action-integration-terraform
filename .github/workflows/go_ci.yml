@@ -13,11 +13,6 @@ permissions:
   id-token: write
   contents: read
 
-env:
-  tf_api_token: ${{ secrets.TF_API_TOKEN }}
-  tf_organization: ${{ secrets.TF_ORGANIZATION }}
-  tf_workspace: ${{ secrets.TF_WORKSPACE }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,6 +26,10 @@ jobs:
 
     - name: Build
       run: go build -v ./...
+      env:
+        tf_api_token: ${{ secrets.TF_API_TOKEN }}
+        tf_organization: ${{ secrets.TF_ORGANIZATION }}
+        tf_workspace: ${{ secrets.TF_WORKSPACE }}
 
     - name: Test
       run: go test -v ./...
