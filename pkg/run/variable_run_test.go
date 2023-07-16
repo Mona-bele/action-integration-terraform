@@ -11,9 +11,9 @@ import (
 
 func init() {
 	log.Println("TF_API_TOKEN-TO", os.Getenv("TF_API_TOKEN"))
-	os.Setenv("tf_api_token", os.Getenv("TF_API_TOKEN"))
-	os.Setenv("tf_organization", os.Getenv("TF_ORGANIZATION"))
-	os.Setenv("tf_workspace", os.Getenv("TF_WORKSPACE"))
+	os.Setenv("tf_api_token", os.Getenv("tf_api_token"))
+	os.Setenv("tf_organization", os.Getenv("tf_organization"))
+	os.Setenv("tf_workspace", os.Getenv("tf_workspace"))
 	os.Setenv("tf_run_type", "teste")
 
 	os.Setenv("variable_type", "vars")
