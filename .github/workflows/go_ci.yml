@@ -9,6 +9,15 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  tf_api_token: ${{ secrets.TF_API_TOKEN }}
+  tf_organization: ${{ env.TF_ORGANIZATION }}
+  tf_workspace: ${{ env.TF_WORKSPACE }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +34,3 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-      env:
-        tf_api_token: ${{ secrets.TF_API_TOKEN }}
-        tf_organization: ${{ env.TF_ORGANIZATION }}
-        tf_workspace: ${{ env.TF_WORKSPACE }}
