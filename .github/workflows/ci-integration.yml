@@ -1,14 +1,10 @@
-name: Test Integration
+name: test integration
 
 on:
   push:
     branches: [ "develop" ]
   pull_request:
     branches: [ "develop" ]
-
-permissions:
-  id-token: write
-  contents: read
 
 jobs:
   build-integration:
