@@ -26,10 +26,11 @@ jobs:
 
     - name: Build
       run: go build -v ./...
-      env:
-        tf_api_token: ${{ secrets.TF_API_TOKEN }}
-        tf_organization: ${{ secrets.TF_ORGANIZATION }}
-        tf_workspace: ${{ secrets.TF_WORKSPACE }}
 
     - name: Test
-      run: env && go test -v ./...
+      run: go test -v ./...
+      env:
+        TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+        TF_WORKSPACE: ${{ secrets.TF_WORKSPACE }}
+        TF_ORGANIZATION: ${{ secrets.TF_ORGANIZATION }}
+        TF_RUN_TYPE: 'test'

@@ -4,18 +4,13 @@ import (
 	"context"
 	"github.com/Mona-bele/action-integration-terraform/pkg/run"
 	"github.com/Mona-bele/action-integration-terraform/pkg/utils"
-	"log"
+	"github.com/joho/godotenv"
 	"os"
 	"testing"
 )
 
 func init() {
-	log.Println("TF_API_TOKEN-TO", os.Getenv("TF_API_TOKEN"))
-	os.Setenv("tf_api_token", os.Getenv("tf_api_token"))
-	os.Setenv("tf_organization", os.Getenv("tf_organization"))
-	os.Setenv("tf_workspace", os.Getenv("tf_workspace"))
-	os.Setenv("tf_run_type", "teste")
-
+	_ = godotenv.Load()
 	os.Setenv("variable_type", "vars")
 	os.Setenv("variable_key", "some_key")
 	os.Setenv("variable_value", "some_value")

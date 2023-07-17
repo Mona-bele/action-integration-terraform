@@ -30,10 +30,10 @@ func LoadEnv(path string) (*ConfigEnv, error) {
 
 	_ = godotenv.Load()
 
-	env.TFAPITOKEN = os.Getenv("tf_api_token")
-	env.TFWORKSPACE = os.Getenv("tf_workspace")
-	env.TFORGANIZATION = os.Getenv("tf_organization")
-	env.TFRUNTYPE = os.Getenv("tf_run_type")
+	env.TFAPITOKEN = os.Getenv("TF_API_TOKEN")
+	env.TFWORKSPACE = os.Getenv("TF_WORKSPACE")
+	env.TFORGANIZATION = os.Getenv("TF_ORGANIZATION")
+	env.TFRUNTYPE = os.Getenv("TF_RUN_TYPE")
 
 	env.VariableType = os.Getenv("variable_type")
 	env.VariableKey = os.Getenv("variable_key")
