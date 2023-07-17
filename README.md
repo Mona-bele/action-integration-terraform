@@ -1,6 +1,8 @@
 # action-integration-terraform
 Sets up Terraform API in your GitHub Actions workflow.
 
+[![Go CI](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/go_ci.yml/badge.svg)](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/go_ci.yml)
+
 ## Usage
 
 The `Mona-bele/action-integration-terraform` action is used to set up Terraform API in your GitHub Actions workflow.
