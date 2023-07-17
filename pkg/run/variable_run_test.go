@@ -4,13 +4,11 @@ import (
 	"context"
 	"github.com/Mona-bele/action-integration-terraform/pkg/run"
 	"github.com/Mona-bele/action-integration-terraform/pkg/utils"
-	"github.com/joho/godotenv"
 	"os"
 	"testing"
 )
 
 func init() {
-	_ = godotenv.Load()
 	os.Setenv("variable_type", "vars")
 	os.Setenv("variable_key", "some_key")
 	os.Setenv("variable_value", "some_value")
