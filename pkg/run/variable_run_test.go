@@ -9,13 +9,13 @@ import (
 )
 
 func init() {
-	os.Setenv("variable_type", "vars")
-	os.Setenv("variable_key", "some_key")
-	os.Setenv("variable_value", "some_value")
-	os.Setenv("variable_description", "some description")
-	os.Setenv("variable_category", "terraform")
-	os.Setenv("variable_hcl", "false")
-	os.Setenv("variable_sensitive", "false")
+	os.Setenv("INPUT_VARIABLE_TYPE", "vars")
+	os.Setenv("INPUT_TF_VARIABLE_KEY", "some_key")
+	os.Setenv("INPUT_TF_VARIABLE_VALUE", "some_value")
+	os.Setenv("INPUT_TF_VARIABLE_DESCRIPTION", "some description")
+	os.Setenv("INPUT_TF_VARIABLE_CATEGORY", "terraform")
+	os.Setenv("INPUT_TF_VARIABLE_HCL", "false")
+	os.Setenv("INPUT_TF_VARIABLE_SENSITIVE", "false")
 }
 
 func TestVariableRun_Read(t *testing.T) {

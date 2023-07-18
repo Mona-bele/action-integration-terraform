@@ -43,34 +43,14 @@ inputs:
     required: false
     default: 'var_description'
 
-# Workspace Variables API Interactions
-  delete_variable:
-    description: 'Delete Workspace Variable'
-    required: false
-
-  create_variable:
-    description: 'Create Workspace Variable'
-    required: false
-
 runs:
   using: docker
   image: Dockerfile
   env:
-    TF_API_TOKEN: ${{ inputs.tf_api_token }}
-    TF_WORKSPACE: ${{ inputs.tf_workspace }}
-    TF_ORGANIZATION: ${{ inputs.tf_organization }}
-    TF_RUN_TYPE: ${{ inputs.tf_run_type }}
-
-  args:
-    - "-variable_type=${{ inputs.variable_type }}"
-    - "-variable_key=${{ inputs.variable_key }}"
-    - "-variable_value=${{ inputs.variable_value }}"
-    - "-variable_category=${{ inputs.variable_category }}"
-    - "-variable_sensitive=${{ inputs.variable_sensitive }}"
-    - "-variable_hcl=${{ inputs.variable_hcl }}"
-    - "-variable_description=${{ inputs.variable_description }}"
-    - "-delete_variable=${{ inputs.delete_variable }}"
-    - "-create_variable=${{ inputs.create_variable }}"
+    INPUT_TF_API_TOKEN: ${{ inputs.tf_api_token }}
+    INPUT_TF_WORKSPACE: ${{ inputs.tf_workspace }}
+    INPUT_TF_ORGANIZATION: ${{ inputs.tf_organization }}
+    INPUT_TF_RUN_TYPE: ${{ inputs.tf_run_type }}
 
 branding:
   icon: 'activity'
