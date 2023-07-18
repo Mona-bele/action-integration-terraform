@@ -5,23 +5,15 @@ inputs:
   tf_api_token:
     description: 'Terraform Cloud API Token'
     required: true
-    default: 'TF_API_TOKEN'
   tf_workspace:
     description: 'Terraform Cloud Workspace'
     required: true
-    default: 'TF_WORKSPACE'
   tf_organization:
     description: 'Terraform Cloud Organization'
     required: true
-    default: 'TF_ORGANIZATION'
   tf_run_type:
     description: 'Terraform Cloud Run Type'
     required: true
-    default: 'TF_RUN_TYPE'
-  version_image:
-    description: 'Version of the Docker Image'
-    required: false
-    default: 'latest'
 
 # Workspace Variables API
   variable_type:
@@ -61,8 +53,8 @@ inputs:
     required: false
 
 runs:
-  using: "docker"
-  image: "docker://monabele/action-integration-terraform-cloud:${{ inputs.version_image }}"
+  using: docker
+  image: Dockerfile
   env:
     TF_API_TOKEN: ${{ inputs.tf_api_token }}
     TF_WORKSPACE: ${{ inputs.tf_workspace }}
