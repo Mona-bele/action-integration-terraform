@@ -39,6 +39,7 @@ jobs:
         tf_api_token: ${{ secrets.TF_API_TOKEN }}
         tf_workspace: ${{ secrets.TF_WORKSPACE }}
         tf_organization: ${{ secrets.TF_ORGANIZATION }}
+        version_image: 'v0.1.0'
         tf_run_type: 'variable_create'
         tf_variable_key: 'test'
         tf_variable_value: 'test'
