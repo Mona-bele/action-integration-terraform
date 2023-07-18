@@ -34,7 +34,7 @@ jobs:
         TF_RUN_TYPE: 'test'
 
     - name: Terraform API Integration
-      uses: monabele/action-integration-terraform@v0.1.0
+      uses: Mona-bele/action-integration-terraform@v0.1.0
       with:
         tf_api_token: ${{ secrets.TF_API_TOKEN }}
         tf_workspace: ${{ secrets.TF_WORKSPACE }}
