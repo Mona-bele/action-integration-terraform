@@ -61,7 +61,7 @@ inputs:
     required: false
 
 runs:
-  using: docker
+  using: "docker"
   image: "docker://monabele/action-integration-terraform-cloud:${{ inputs.version_image }}"
   env:
     tf_api_token: ${{ inputs.tf_api_token }}
