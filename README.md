@@ -1,5 +1,15 @@
-# action-integration-terraform
+# Action Integration Terraform Cloud
 Sets up Terraform API in your GitHub Actions workflow.
+
+## Cases
+
+This project arose in the need to create dynamic environment with Terraform Cloud interaction.
+1) We had a problem when creating an environment variable in the Terraform Cloud workspace that would be used to define STAGE in the AWS API Gateway depending on the branch used.
+example: main: stage -> prod and develop: stage dev
+
+### Variables
+- [x] [Create Variable](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable#create)
+- [x] [Delete Variable](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable#delete)
 
 [![Go CI](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/go_ci.yml/badge.svg)](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/go_ci.yml) [![test integration](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/ci-integration.yml/badge.svg)](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/ci-integration.yml)
 
