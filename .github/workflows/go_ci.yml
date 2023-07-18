@@ -30,7 +30,7 @@ jobs:
     - name: Test
       run: go test -v ./...
       env:
-        TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
-        TF_WORKSPACE: ${{ secrets.TF_WORKSPACE }}
-        TF_ORGANIZATION: ${{ secrets.TF_ORGANIZATION }}
-        TF_RUN_TYPE: 'test'
+        INPUT_TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+        INPUT_TF_WORKSPACE: ${{ secrets.TF_WORKSPACE }}
+        INPUT_TF_ORGANIZATION: ${{ secrets.TF_ORGANIZATION }}
+        INPUT_TF_RUN_TYPE: 'test'

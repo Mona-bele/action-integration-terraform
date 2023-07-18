@@ -8,8 +8,7 @@ import (
 )
 
 func main() {
-	utils.ArgsInput()
-	tfRunType := os.Getenv("tf_run_type")
+	tfRunType := os.Getenv("INPUT_TF_RUN_TYPE")
 	builder, err := run.GetBuilder(tfRunType)
 	if err != nil {
 		utils.SetGithubEnvOutput("error", err.Error())
