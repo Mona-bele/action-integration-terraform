@@ -15,7 +15,7 @@ jobs:
 
       - name: Set env variable tag
         run: |
-          f=$(basename -- "$TAG")
+          f=$(basename -- "${{ github.ref }}")
           echo "TAG=${f}" >> $GITHUB_ENV
 
       - name: Set up QEMU
