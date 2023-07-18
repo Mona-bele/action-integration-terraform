@@ -34,11 +34,11 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: monabele/action-integration-terraform-cloud
+          images: docker.io/monabele/action-integration-terraform-cloud]
           tags: type=ref,event=tag
 
       - name: Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           push: true
