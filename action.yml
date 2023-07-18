@@ -64,11 +64,10 @@ runs:
   using: "docker"
   image: "docker://monabele/action-integration-terraform-cloud:${{ inputs.version_image }}"
   env:
-    tf_api_token: ${{ inputs.tf_api_token }}
+    TF_API_TOKEN: ${{ inputs.tf_api_token }}
     TF_WORKSPACE: ${{ inputs.tf_workspace }}
-    tf_workspace: ${{ inputs.tf_organization }}
-    tf_run_type: ${{ inputs.tf_run_type }}
-    variable_type: ${{ inputs.variable_type }}
+    TF_ORGANIZATION: ${{ inputs.tf_organization }}
+    TF_RUN_TYPE: ${{ inputs.tf_run_type }}
 
   args:
     - "-variable_type=${{ inputs.variable_type }}"
