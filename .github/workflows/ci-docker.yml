@@ -18,6 +18,13 @@ jobs:
           f=$(basename -- "${{ github.ref }}")
           echo "TAG=${f}" >> $GITHUB_ENV
 
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: "docker.io/monabele/action-integration-terraform-cloud"
+          tags: type=ref,event=tag
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -30,15 +37,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: monabele/action-integration-terraform-cloud
-
       - name: Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: "latest,${{ env.TAG }}"
+          tags: "${{ steps.meta.outputs.tags }}"
+          labels: "${{ steps.meta.outputs.labels }}"
