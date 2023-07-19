@@ -9,10 +9,12 @@ example: main: stage -> prod and develop: stage dev
 
 ### Variables
 - [x] [Create Variable](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable#create)
+- [ ] [Update Variable](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable#update)
 - [x] [Delete Variable](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable#delete)
 
-[![Go CI](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/go_ci.yml/badge.svg)](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/go_ci.yml) [![test integration](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/ci-integration.yml/badge.svg)](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/ci-integration.yml)
-
+[![Go CI](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/go_ci.yml/badge.svg)](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/go_ci.yml) 
+[![test integration](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/ci-integration.yml/badge.svg)](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/ci-integration.yml)
+[![CI Docker](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/ci-docker.yml/badge.svg)](https://github.com/Mona-bele/action-integration-terraform/actions/workflows/ci-docker.yml)
 ## Usage
 
 The `Mona-bele/action-integration-terraform` action is used to set up Terraform API in your GitHub Actions workflow.
