@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/action-integration-terraform-cloud"
+          images: "docker.io/monabele/action-integration-terraform-cloud"
           tags: type=ref,event=tag
 
       - name: Set up QEMU
@@ -42,5 +42,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/action-integration-terraform-cloud:${{ steps.meta.outputs.tags }}"
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: "${{ steps.meta.outputs.tags }}"
+          labels: "${{ steps.meta.outputs.labels }}"
